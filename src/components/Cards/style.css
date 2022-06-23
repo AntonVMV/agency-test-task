@@ -67,6 +67,12 @@
   object-fit: cover;
 }
 
+.cards__empty {
+  color: #28293e;
+  align-self: center;
+  margin: 80px 0;
+}
+
 @media screen and (max-width: 1039px) {
   .card.active {
     box-shadow: none;

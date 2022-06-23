@@ -14,7 +14,7 @@ export const Cards: React.FC<CardsProps> = ({ onChangeFilter, cards }) => {
   const dispatch = useAppDispatch();
 
   // Немного не понял тут. Нужно ли было иметь возможность выделить несколько карточек или только одну. Поэтому
-  // оставил одну. Для выбора нескольких написал бы бы почти то же самое, только хранил массив выбраных и при удалени проходил бы
+  // оставил одну. Для выбора нескольких написал бы бы почти то же самое, только хранил массив выбраных при удалени проходил бы
   // циклом и так же удалял.
   const selectCard = (item: CardObj) => {
     if (item.id === selectedCard?.id) {
@@ -36,19 +36,25 @@ export const Cards: React.FC<CardsProps> = ({ onChangeFilter, cards }) => {
   }, [selectedCard, dispatch]);
 
   return (
-    <ul className="cards__list">
-      {cards.map((item, index) => {
-        return (
-          <React.Fragment key={index}>
-            <Card
-              card={item}
-              onTagClick={() => onChangeFilter(item.tag)}
-              onCardSelect={() => selectCard(item)}
-              isActive={selectedCard?.id === item.id}
-            />
-          </React.Fragment>
-        );
-      })}
-    </ul>
+    <>
+      {cards.length ? (
+        <ul className="cards__list">
+          {cards.map((item, index) => {
+            return (
+              <React.Fragment key={index}>
+                <Card
+                  card={item}
+                  onTagClick={() => onChangeFilter(item.tag)}
+                  onCardSelect={() => selectCard(item)}
+                  isActive={selectedCard?.id === item.id}
+                />
+              </React.Fragment>
+            );
+          })}
+        </ul>
+      ) : (
+        <div className="cards__empty">No cards, load more</div>
+      )}
+    </>
   );
 };

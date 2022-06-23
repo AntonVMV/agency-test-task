@@ -5,6 +5,10 @@
   font-family: "Epilogue", sans-serif;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-color: #fdf0e9;
   padding-bottom: 185px;
