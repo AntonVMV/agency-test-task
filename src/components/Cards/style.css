@@ -1,0 +1,85 @@
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 370px);
+
+  gap: 30px;
+  justify-content: center;
+  margin: 75px 0 80px;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  height: 416px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.card.active {
+  box-shadow: 0 0 0 7px #16cd53;
+}
+
+.card__title {
+  font-size: 40px;
+  color: white;
+  font-weight: 400;
+}
+
+.card__description {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 53px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card__tag {
+  padding: 9px 20px;
+  background-color: white;
+  border-radius: 16px;
+  font-size: 16px;
+  color: #391400;
+  transition: 0.2s ease;
+}
+
+.card__tag:hover {
+  background-color: #fde5d8;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1039px) {
+  .card.active {
+    box-shadow: none;
+  }
+
+  .card__description {
+    left: 28px;
+    right: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards__list {
+    grid-template-columns: 1fr;
+  }
+}

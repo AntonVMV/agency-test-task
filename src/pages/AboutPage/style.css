@@ -1,0 +1,19 @@
+.cards__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.load-button {
+  padding: 14px 39px;
+  border-radius: 6px;
+  background-color: white;
+  text-transform: uppercase;
+  color: rgb(57, 20, 0);
+  align-self: center;
+  box-shadow: 0 3px 9px rgba(57, 20, 0, 0.1);
+  transition: 0.2s ease;
+}
+
+.load-button:hover {
+  background-color: rgba(57, 20, 0, 0.2);
+}
